@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<title>Projeto Integrador - Automação Aquaponia</title>
+		<style>
+			html {
+				font-family: Arial;
+				display: inline-block;
+				margin: 0px auto;
+				text-align: center;
+			}
+
+
+			h1 { font-size: 2.0rem; color:#2980b9;}
+      
+			.buttonON {
+				display: inline-block;
+				padding: 15px 25px;
+				font-size: 24px;
+				font-weight: bold;
+				cursor: pointer;
+				text-align: center;
+				text-decoration: none;
+				outline: none;
+				color: #fff;
+				background-color: #4CAF50;
+				border: none;
+				border-radius: 5px;
+				box-shadow: 0 5px #999;
+			}
+		
+			.buttonON:hover {background-color: #3e8e41}
+			.buttonON:active {
+				background-color: #3e8e41;
+				box-shadow: 0 1px #666;
+				transform: translateY(4px);
+			}
+      
+			.buttonOFF {
+				display: inline-block;
+				padding: 15px 25px;
+				font-size: 24px;
+				font-weight: bold;
+				cursor: pointer;
+				text-align: center;
+				text-decoration: none;
+				outline: none;
+				color: #fff;
+				background-color: #e74c3c;
+				border: none;
+				border-radius: 5px;
+				box-shadow: 0 5px #999;
+			}
+		
+			.buttonOFF:hover {background-color: #c0392b}
+			.buttonOFF:active {
+				background-color: #c0392b;
+				box-shadow: 0 1px #666;
+				transform: translateY(4px);
+			}
+			
+			.text {
+				text-align: center;
+				font-size: 18px;
+				width: 200px;
+				height: 22px;
+				border: 3px solid #9b59b6;
+				border-radius: 5px;
+				padding: 3px;
+				-webkit-transition: border 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+				-moz-transition: border 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+				-ms-transition: border 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+				-o-transition: border 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+				transition: border 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+			}
+
+			.text:focus {
+				border: 3px solid #8e44ad;
+				box-shadow: 0 0 7px #8e44ad;
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>PROJETO INTEGRADOR - UNIVESP</h1>
+			<br>
+			<p style="color:#2c3e50;font-weight: bold;font-size: 18px;">API Key : 
+				<input type="password" id="ts-api-key" class="text" placeholder="ThingSpeak API Key" />
+				<input type="checkbox" onclick="hideapikey()">Exibir API Key
+			</p>
+			<p style="color:#2c3e50;font-weight: bold;font-size: 18px;">Channel ID : 
+				<input type="password" id="ts-channel-id" class="text" placeholder="ThingSpeak Channel ID" />
+				<input type="checkbox" onclick="hidechannelid()">Exibir Channel ID
+			</p>
+			<br>
+			<button type="button" id="bomba-on" class="buttonON" >Ligar Bomba</button>
+			<button type="button" id="bomba-off" class="buttonOFF" >Desligar Bomba</button><br>
+			<br>
+			<button type="button" id="aqu-on" class="buttonON" >Ligar Aquecedor</button>
+			<button type="button" id="aqu-off" class="buttonOFF" >Desligar Aquecedor</button><br>
+		</div>
+		<br>
+		
+		<p<div>
+			<p style="color:#2c3e50;font-weight: bold;font-size: 24px;">A bomba está : <span id="bombaState">...</span></p>		
+			<p style="color:#2c3e50;font-weight: bold;font-size: 24px;">O aquecedor está : <span id="aquState">...</span></p>		
+		</div>
+    
+
+
+		
+		<script>
+			function hideapikey() {
+				var x = document.getElementById("ts-api-key");
+				if (x.type === "password") {
+					x.type = "text";
+				} else {
+					x.type = "password";
+				}
+			}
+			function hidechannelid() {
+				var x = document.getElementById("ts-channel-id");
+				if (x.type === "password") {
+					x.type = "text";
+				} else {
+					x.type = "password";
+				}
+			}
+			
+			document.getElementById('bomba-on').addEventListener('click', function() {
+				var ts_api_key = document.getElementById('ts-api-key').value;
+				var url = "https://api.thingspeak.com/update?api_key=BY3NQR5RTECHYXQ5&field1=1"
+				$.getJSON(url, function(data) {
+					console.log(data);
+				});
+			});
+		
+			document.getElementById('bomba-off').addEventListener('click', function() {
+				var ts_api_key = document.getElementById('ts-api-key').value;
+				var url = "https://api.thingspeak.com/update?api_key=BY3NQR5RTECHYXQ5&field1=0"
+				$.getJSON(url, function(data) {
+					console.log(data);
+				});
+			});
+			
+			document.getElementById('aqu-on').addEventListener('click', function() {
+				var ts_api_key = document.getElementById('ts-api-key').value;
+				var url = "https://api.thingspeak.com/update?api_key=BY3NQR5RTECHYXQ5&field2=1"
+				$.getJSON(url, function(data) {
+					console.log(data);
+				});
+			});
+		
+			document.getElementById('aqu-off').addEventListener('click', function() {
+				var ts_api_key = document.getElementById('ts-api-key').value;
+				var url = "https://api.thingspeak.com/update?api_key=BY3NQR5RTECHYXQ5&field2=0"
+				$.getJSON(url, function(data) {
+					console.log(data);
+				});
+			});
+
+			setInterval(function() {
+			// Call a function repetatively with 15 Second interval
+				getThingSpeakLightState();
+			}, 15000);
+			
+			function getThingSpeakLightState() {
+				var ts_channel_id = document.getElementById('ts-channel-id').value;
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						var myObj = JSON.parse(this.responseText);
+						if (myObj.field1 == 1) {
+							document.getElementById("bombaState").innerHTML = "ON";
+	
+						}
+						else {
+							document.getElementById("bombaState").innerHTML = "OFF";
+	
+						}
+
+						if (myObj.field2 == 1) {
+							document.getElementById("aquState").innerHTML = "ON";
+	
+						}
+						else {
+							document.getElementById("aquState").innerHTML = "OFF";
+	
+						}
+
+					}
+				};
+				xhttp.open("GET", "https://api.thingspeak.com/channels/" + ts_channel_id + "/fields/1/last.json", true);
+				xhttp.send();
+			}
+		</script>
+	</body>
+</html>
