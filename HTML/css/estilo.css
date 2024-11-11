@@ -1,0 +1,60 @@
+@import url(`.reset.min.css`);
+
+body {
+    display:grid;
+    height: 100vh;
+    grid-template-rows: 7vh 86vh 7vh;
+}
+header, footer {
+    background-color: blue;
+    color: whitesmoke;
+    text-align: center;
+}
+
+header h1 { 
+    line-height: 5vh;
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+h1 {
+    background-color: blue;
+    color: whitesmoke;  
+    line-height: 5vh;
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+main {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+footer address {
+    line-height: 5vh;
+    margin-left: 1rem;
+}
+
+p {
+    style="color:#2c3e50;
+    font-weight: bold;
+    font-size: 15px;"
+    margin: 0.5rem;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    footer address {
+        line-height: 10vh;
+    }
+
+    
+}

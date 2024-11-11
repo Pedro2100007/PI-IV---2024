@@ -1,0 +1,22 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.divbtn {
+    margin: 0.5em;
+}
+.btn {
+    width: 200px;
+    height: 40px;
+    border: solid 1px;
+    background: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+.bt1 {
+    background-color: rgb(0, 174, 255);
+    color: white;
+}
+.bt2 {
+    background-color: rgb(208, 17, 59);
+    color: white;
+}

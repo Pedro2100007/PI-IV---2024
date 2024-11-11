@@ -1,0 +1,35 @@
+section div {
+    border: 1px solid orangered;
+    background-color: orange;
+    margin: 0.2em;
+    padding: 0.5em;
+    color: brown;
+    text-align: center;
+}
+
+.grid01 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+figure {
+    padding: 1em;
+}
+
+img {
+    width: 100%;
+}
+
+.flexBox {
+    height: 430px;
+    display: flex;
+    justify-content: center;
+}
+.flexItem {
+    width: 150px;
+}
+
+.displayNone {
+    display: none;
+}
