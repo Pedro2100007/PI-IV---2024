@@ -100,22 +100,32 @@
 				<input type="checkbox" onclick="hidechannelid()">Exibir Channel ID
 			</p>
 			<br>
+
 			<button type="button" id="bomba-on" class="buttonON" >Ligar Bomba</button>
 			<button type="button" id="bomba-off" class="buttonOFF" >Desligar Bomba</button><br>
 			<br>
+
 			<button type="button" id="aqu-on" class="buttonON" >Ligar Aquecedor</button>
 			<button type="button" id="aqu-off" class="buttonOFF" >Desligar Aquecedor</button><br>
 		</div>
 		<br>
 		
-		<p<div>
+		<div>
 			<p style="color:#2c3e50;font-weight: bold;font-size: 24px;">A bomba está : <span id="bombaState">...</span></p>		
-			<p style="color:#2c3e50;font-weight: bold;font-size: 24px;">O aquecedor está : <span id="aquState">...</span></p>		
+			<p style="color:#2c3e50;font-weight: bold;font-size: 24px;">O aquecedor está : <span id="aquState">...</span></p>
+			<br>
+
 		</div>
     
+		<p style="color:#2c3e50;font-weight: bold;font-size: 18px;">Temperatura : 
+			<input type="text" id="temperatura" class="text" placeholder="Pegar no thingspeak" />
+		</p>
+		<p style="color:#2c3e50;font-weight: bold;font-size: 18px;">Pressão : 
+			<input type="text" id="pressao" class="text" placeholder="Pegar no thingspeak" />
+		</p>
 
 
-		
+
 		<script>
 			function hideapikey() {
 				var x = document.getElementById("ts-api-key");
